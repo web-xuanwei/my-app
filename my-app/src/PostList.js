@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
+import PostItem from './PostItem';
+
+const data = [
+    {title: "xw1", author: "xx1", date: "2019-8-1"},      
+    {title: "xw2", author: "xx2", date: "2019-8-2"},      
+    {title: "xw3", author: "xx3", date: "2019-8-3"}    
+]
 
 class PostList extends Component{
+    
     render(){
         return(
             <div>
                 帖子列表：
                 <ul>
-                    <li>大家一起来讨论react吧</li>
-                    <li>前端， 你最爱哪一个</li>
-                    <li>Webapp的时代已经到来</li>
+                    {
+                        data.map(item => 
+                            <PostItem
+                                title = {item.title}
+                                author = {item.author}
+                                date = {item.date}
+                            />
+                        )
+                    }
                 </ul>
             </div>
         )
